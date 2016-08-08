@@ -1,5 +1,8 @@
+/*
+	comment
+*/
 #include <stdio.h>
-#define D(x)char*s=x;
-#define WF(x,s)FILE*fp=fopen(#x,#s);
-#define FT(x)int main(){WF(Grace_kid.c,w)D("#include <stdio.h>%c#define D(x)char*s=#x;%c#define WF(x,s)FILE*fp=fopen(#x,#s);%c#define FT(x)int main(){WF(Grace_kid.c,w)D(%s)(x);fclose(fp);return(0);}%cFT(fprintf(fp,s,10,10,10,s,10,10))%c")(x);fclose(fp);return(0);}
-FT(fprintf(fp,s,10,10,10,s,10,10))
+#define O(x)char*s=#x;x
+#define WF(f,m)FILE*fp=fopen(#f,#m);
+#define FT(x)int main(){WF(Grace_kid.c,w)O(x)}
+FT(fprintf(fp,"/*\n\tcomment\n*/\n#include <stdio.h>\n#define O(x)char*s=#x;x\n#define WF(f,m)FILE*fp=fopen(#f,#m);\n#define FT(x)int main(){WF(Grace_kid.c,w)O(x)}\nFT(%s)\n",s);fclose(fp);return(0);)
