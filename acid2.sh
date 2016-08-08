@@ -1,7 +1,10 @@
 #!/bin/sh
-clang -Wall -Wextra -Werror -o Grace Grace.c
+
+
+clang -Wall -Wextra -Werror -o Grace Grace2.c
 ./Grace
-cat Grace.c
+
+cat Grace2.c
 echo "------------------------------"
 cat Grace_kid.c
 echo "------------------------------"
