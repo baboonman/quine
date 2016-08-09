@@ -1,8 +1,29 @@
 package main
 
+/* comment */
 import "fmt"
 
-func main() {
-	var s string = "package main%cimport %cfmt%c%c%cfunc main() {%c%cvar s string = %c%s%c%c%cfmt.Printf(s, 10, 34, 34, 10, 10, 10, 9, 34, s, 34, 10, 9, 10, 10)%c}%c"
-	fmt.Printf(s, 10, 34, 34, 10, 10, 10, 9, 34, s, 34, 10, 9, 10, 10)
+func ft_print(s string) {
+	fmt.Printf("%s%c%s%c\n", s, 0x60, s, 0x60)
 }
+
+func main() {
+	/* comment */
+	ft_print(s)
+}
+
+var s = `package main
+
+/* comment */
+import "fmt"
+
+func ft_print(s string) {
+	fmt.Printf("%s%c%s%c\n", s, 0x60, s, 0x60)
+}
+
+func main() {
+	/* comment */
+	ft_print(s)
+}
+
+var s = `
