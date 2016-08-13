@@ -26,16 +26,16 @@ fclean: clean
 		@echo "\t\xF0\x9F\x9A\xBD   Full Clean"
 		@rm -rf $(NAME)
 		@rm -rf tmp
+		@rm -rf tmp_go
 
 test: $(NAME)
 		mkdir -p tmp ; (cp Sully tmp/ ; cd tmp/ ; ./Sully ; ls -al | grep Sully | wc -l)
-		(cd tmp/ ; diff ../Sully.c Sully_5.c ; diff ../Sully.c Sully_4.c ; diff Sully_5.c Sully_0.c)
+		(cd tmp/ ; diff ../Sully.c Sully_5.c ; diff ../Sully.c Sully_4.c ; diff Sully_5.c Sully_0.c || true)
 
 go: fclean
-	go build Sully.go ; mkdir -p tmp_go ; cp Sully tmp_go/ ; cd tmp_go/ ; ./Sully
-	ls -al | grep Sully | wc -l
-	diff ../Sully.go Sully_5.go ; diff ../Sully.go Sully_4.go ; diff Sully_5.go Sully_0.go
-	cd .. ; rm -rf tmp_go
+	go build Sully.go ; mkdir -p tmp_go ; cp Sully tmp_go/
+	(cd tmp_go/ ; ./Sully ; ls -al | grep Sully | wc -l)
+	(cd tmp_go/ ; diff ../Sully.go Sully_5.go ; diff ../Sully.go Sully_4.go ; diff Sully_5.go Sully_0.go || true)
 
 
 re: fclean all
